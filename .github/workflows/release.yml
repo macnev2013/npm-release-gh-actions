@@ -63,6 +63,9 @@ jobs:
         run: |
           npm version ${{ steps.tag_version.outputs.new_tag }} --follow-tags
           git push --tag
+          git add .
+          git commit -m "bump: version ${{ steps.tag_version.outputs.new_tag }}"
+          git push origin main
 
       - if: startsWith(matrix.label, 'release:')
         name: Creating Github Release
