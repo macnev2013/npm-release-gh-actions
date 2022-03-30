@@ -62,6 +62,7 @@ jobs:
         name: NPM Bump version
         run: |
           npm version ${{ steps.tag_version.outputs.new_tag }} --follow-tags -m "bump version: ${{ steps.tag_version.outputs.new_tag }}"
+          echo "versione created"
           
       - name: Push changes
         uses: ad-m/github-push-action@master
